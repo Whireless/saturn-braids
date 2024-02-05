@@ -61,6 +61,7 @@
         </li>
       </ul>
       <router-link to="/"
+                   v-on:click="closeOnCLick"
                    class="main-nav__logo"
                    aria-label="Наш шикарный логотип"></router-link>
       <ul class="main-nav__list main-nav__list--contact">
