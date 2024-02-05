@@ -16,6 +16,9 @@
   line-height: 28px;
   letter-spacing: 1px;
   text-align: center;
+  padding: 3px 8px;
+  border: 1px solid $lightBlack;
+  border-radius: 20px;
 
   @media (min-width: $tablet) {
     font-size: 30px;
@@ -74,6 +77,7 @@
 .hairstyles__img {
   @media (min-width: $tablet) {
     grid-row: 1/-1;
+    height: 365px;
   }
 
   @media (min-width: $desktop) {
@@ -88,21 +92,51 @@
   line-height: 24px;
   text-align: center;
   letter-spacing: 2px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../icons/hair.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0%;
+  }
 
   @media (min-width: $tablet) {
     font-size: 24px;
     line-height: 27px;
+
+    &::before {
+      top: 35px;
+      left: 135px;
+      width: 35px;
+      height: 35px;
+    }
   }
 
   @media (min-width: $desktop) {
     font-size: 29px;
     line-height: 32px;
     margin-top: 100px;
+
+    &::before {
+      top: -50px;
+      left: 190px;
+      width: 45px;
+      height: 45px;
+    }
   }
 }
 
 .hairstyles__description {
   text-align: center;
+  margin-top: 35px;
 }
 
 .hairstyles__price {

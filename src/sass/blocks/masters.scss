@@ -18,6 +18,9 @@
   line-height: 27px;
   letter-spacing: 2px;
   text-align: center;
+  padding: 3px 8px;
+  border: 1px solid $lightBlack;
+  border-radius: 20px;
 
   @media (min-width: $tablet) {
     font-size: 30px;

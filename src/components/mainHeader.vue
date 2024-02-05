@@ -5,7 +5,7 @@
         // Список навигации и контакты
         navList: [
           {
-            href: '/',
+            href: '/home',
             text: 'Главная',
           },
           {
@@ -60,7 +60,7 @@
                          class="main-nav__link main-nav__link--nav">{{ li.text }}</router-link>
         </li>
       </ul>
-      <router-link to="/"
+      <router-link to="/home"
                    v-on:click="closeOnCLick"
                    class="main-nav__logo"
                    aria-label="Наш шикарный логотип"></router-link>

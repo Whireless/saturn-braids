@@ -78,19 +78,31 @@
           },
         ],
       }
-    }
+    },
+    methods: {
+      // Открытие ответа на вопрос
+      openAnswer(question) {
+        const doc = document.querySelectorAll('.faq__answer');
+        this.faqList.forEach((q, i) => {
+          if(question === q.question) {
+            doc[i].classList.toggle('faq__answer--open');
+          }
+        });
+      },
+    },
   }
 </script>
 
 <template>
-  <section class="faq" id="start">
+  <section class="faq">
     <div class="container">
       <h2 class="faq__title">Ещё сомневаешься? Прочти!</h2>
       <ul class="faq__info-list">
         <li class="faq__info-item"
             v-for="li in faqList"
             v-bind:key="li">
-          <h3 class="faq__question">{{ li.question }}</h3>
+          <h3 class="faq__question"
+              v-on:click="openAnswer(li.question)">{{ li.question }}</h3>
           <p class="faq__answer">{{ li.answer }}</p>
         </li>
       </ul>

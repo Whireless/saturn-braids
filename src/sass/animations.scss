@@ -1,3 +1,16 @@
+// Preloader
+@keyframes gradient {
+  0% {
+      background-position: 80% 0%;
+  }
+  50% {
+      background-position: 20% 100%;
+  }
+  100% {
+      background-position: 80% 0%;
+  }
+}
+
 // Анимация мобильного меню
 @keyframes topOpen {
   0% {
@@ -81,4 +94,20 @@
     bottom: 0;
     transform: rotate(0);
   }
+}
+
+// Переходы между компонентами
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: 0.7s;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
