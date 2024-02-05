@@ -80,7 +80,7 @@
       }
     },
     methods: {
-      // Открытие ответа на вопрос
+      // Открытие/закрытие ответа на вопрос
       openAnswer(question) {
         const doc = document.querySelectorAll('.faq__answer');
         this.faqList.forEach((q, i) => {

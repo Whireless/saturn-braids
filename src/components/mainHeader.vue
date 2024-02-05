@@ -19,13 +19,13 @@
         ],
         contactList: [
           {
-            href: 'tel:',
+            href: 'tel:+7 901 102-83-16',
             text: '+7 901 102-83-16',
           },
-          // {
-          //   href: 'mailto:',
-          //   text: 'mail@mail.com',
-          // },
+          {
+            href: 'https://vk.me/club_art_in_hair',
+            text: 'Онлайн-запись',
+          },
         ],
       }
     },

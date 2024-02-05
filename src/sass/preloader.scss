@@ -15,12 +15,12 @@
   background: $gradient1;
   background-size: 400%;
   animation: gradient 4s infinite linear;
-  transition: opacity 2s, visibility 0s 0s;
+  transition: opacity 2.5s, visibility 0s 0s;
 
   &--hidden {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 1.5s, visibility 0s 1.5s;
+    transition: opacity 2.5s, visibility 0s 2.5s;
   }
 }
 

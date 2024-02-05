@@ -82,7 +82,7 @@
             <img :src="li.img"
                 :alt="li.alt"
                 class="hairstyles__img"
-                width="335" height="300">
+                width="335" height="320">
             <h3 class="hairstyles__subtitle">{{ li.title }}</h3>
             <p class="hairstyles__description">{{ li.desc }}</p>
             <span class="hairstyles__price">{{ li.price }}</span>

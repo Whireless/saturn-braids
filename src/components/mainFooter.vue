@@ -7,13 +7,13 @@
           {
             href: 'https://vk.com/club_art_in_hair',
             name: 'Вконтакте',
-            icon: '',
+            class: 'main-footer__social-link--vk',
           },
-          // {
-          //   href: '',
-          //   name: 'Телеграм',
-          //   icon: '',
-          // },
+          {
+            href: 'tg://resolve?domain=@alina_saturn_braids',
+            name: 'Telegram',
+            class: 'main-footer__social-link--telegram',
+          },
         ],
       }
     }
@@ -29,7 +29,7 @@
             v-for="li in socials"
             v-bind:key="li">
           <a :href="li.href"
-             class="main-footer__social-link"
+             :class="['main-footer__social-link', li.class]"
              :aria-label="li.name"></a>
         </li>
       </ul>
