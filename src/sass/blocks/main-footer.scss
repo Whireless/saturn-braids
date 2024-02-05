@@ -1,0 +1,63 @@
+.main-footer {
+  color: $whitesmoke;
+  background-color: $lightBlack;
+  padding: 10px 0;
+
+  @media (min-width: $tablet) {
+    padding: 20px 0;
+  }
+}
+
+.main-footer__social-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-footer__social-link {
+  text-decoration: none;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("/icons/vk.svg");
+  background-repeat: no-repeat;
+  transition: 0.5s;
+
+  @media (min-width: $tablet) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 45px;
+    height: 45px;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.main-footer__geo {
+  margin-top: 10px;
+
+  @media (min-width: $tablet) {
+    margin-top: 15px;
+  }
+}
+
+.main-footer__copyright {
+  text-align: center;
+  display: block;
+  margin-top: 30px;
+
+  @media (min-width: $tablet) {
+    font-size: 17px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 19px;
+    line-height: 22px;
+  }
+}

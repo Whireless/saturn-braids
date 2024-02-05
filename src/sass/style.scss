@@ -1,0 +1,19 @@
+@import 'variables.scss';
+@import 'animations.scss';
+@import 'container.scss';
+@import 'global.scss';
+@import 'blocks/main-header.scss';
+@import 'blocks/main-nav.scss';
+
+// Главная
+@import 'blocks/intro.scss';
+@import 'blocks/hairstyles.scss';
+@import 'blocks/ready.scss';
+
+// О прическах
+@import 'blocks/faq.scss';
+
+// Наши мастера
+@import 'blocks/masters.scss';
+
+@import 'blocks/main-footer.scss';

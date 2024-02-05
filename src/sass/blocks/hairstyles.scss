@@ -1,0 +1,114 @@
+.hairstyles {
+  padding: 30px 0;
+
+  @media (min-width: $tablet) {
+    padding: 50px 0;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 70px 0;
+  }
+}
+
+.hairstyles__title {
+  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
+  font-size: 25px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  text-align: center;
+
+  @media (min-width: $tablet) {
+    font-size: 30px;
+    line-height: 33px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 35px;
+    line-height: 38px;
+  }
+}
+
+.hairstyles__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  margin: 25px 0 0 0;
+
+  @media (min-width: $tablet) {
+    row-gap: 45px;
+    margin: 50px 0 0 0;
+  }
+}
+
+.hairstyles__item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: 335px 310px;
+    grid-template-rows: repeat(4, auto);
+    justify-content: space-between;
+    row-gap: 50px;
+
+    &:nth-child(even) {
+      grid-template-columns: 310px 335px;
+      
+      .hairstyles__img {
+        grid-column: 2;
+      }
+    }
+  }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 500px 420px;
+
+    &:nth-child(even) {
+      grid-template-columns: 420px 500px;
+    }
+  }
+}
+
+.hairstyles__img {
+  @media (min-width: $tablet) {
+    grid-row: 1/-1;
+  }
+
+  @media (min-width: $desktop) {
+    width: 520px;
+    height: 490px;
+  }
+}
+
+.hairstyles__subtitle {
+  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
+  font-size: 21px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 2px;
+
+  @media (min-width: $tablet) {
+    font-size: 24px;
+    line-height: 27px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 29px;
+    line-height: 32px;
+    margin-top: 100px;
+  }
+}
+
+.hairstyles__description {
+  text-align: center;
+}
+
+.hairstyles__price {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  padding: 5px;
+  border: 1px solid $lightBlack;
+  border-radius: 30px;
+}
