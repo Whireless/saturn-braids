@@ -40,6 +40,7 @@
         </span>
       </p>
       <span class="main-footer__copyright">Saturn Braids © 2024</span>
+      <span class="main-footer__dev">dev: <a href="https://github.com/Whireless">whireless</a></span>
     </div>
   </footer>
 </template>
