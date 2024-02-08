@@ -1,14 +1,14 @@
 .faq {
-  margin: 91px auto 0 auto;
+  margin: 90px auto 0 auto;
   padding: 30px 0;
 
   @media (min-width: $tablet) {
-    margin: 97px auto 0 auto;
+    margin: 100px auto 0 auto;
     padding: 50px 0;
   }
 
   @media (min-width: $desktop) {
-    margin: 110px auto 0 auto;
+    margin: 105px auto 0 auto;
     padding: 70px 0;
   }
 }
@@ -19,7 +19,9 @@
   line-height: 27px;
   letter-spacing: 2px;
   text-align: center;
-  padding: 3px 8px;
+  width: max-content;
+  margin: 0 auto;
+  padding: 5px 30px;
   border: 1px solid $lightBlack;
   border-radius: 20px;
 

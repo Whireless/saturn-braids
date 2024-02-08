@@ -49,7 +49,7 @@
         ],
         readyList: [
           {
-            desc: `Понравились причёски выше, но всё еще не уверена что готова к такому? По ссылке ниже мы расписали все подробно, чтобы развеять твои страхи ;)`,
+            desc: `Понравились причёски выше, но всё еще есть вопросы? По ссылке ниже мы расписали все подробно, чтобы развеять твои страхи ;)`,
             link: '/faq',
             linkName: 'Ответы на вопросы',
           },
@@ -74,7 +74,7 @@
     </article>
     <article class="hairstyles">
       <div class="container">
-        <h2 class="hairstyles__title">Немного о прическах</h2>
+        <h2 class="hairstyles__title">О прическах</h2>
         <ul class="hairstyles__list">
           <li class="hairstyles__item"
               v-for="li in hairstyles"
@@ -93,6 +93,7 @@
     <article class="ready">
       <div class="container">
         <h2 class="ready__title">Решила заплестись? Супер!</h2>
+        <a class="ready__go-braids" href="https://vk.me/club_art_in_hair">Записаться</a>
         <ul class="ready__list">
           <li class="ready__item"
               v-for="li in readyList"

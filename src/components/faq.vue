@@ -96,7 +96,7 @@
 <template>
   <section class="faq">
     <div class="container">
-      <h2 class="faq__title">Ещё сомневаешься? Прочти!</h2>
+      <h2 class="faq__title">F . A . Q</h2>
       <ul class="faq__info-list">
         <li class="faq__info-item"
             v-for="li in faqList"

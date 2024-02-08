@@ -6,6 +6,27 @@
   text-align: center;
 }
 
+.ready__go-braids {
+  color: $whitesmoke;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  background-color: $lightBlack;
+  padding: 15px 30px;
+  border: 1px solid $lightBlack;
+  border-radius: 30px;
+  margin: 20px auto 0 auto;
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 .ready__list {
   display: flex;
   flex-direction: column;

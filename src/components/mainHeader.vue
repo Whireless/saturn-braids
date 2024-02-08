@@ -10,7 +10,7 @@
           },
           {
             href: '/faq',
-            text: 'О причёсках',
+            text: 'F . A . Q',
           },
           {
             href: '/masters',
