@@ -11,9 +11,9 @@
 }
 
 .hairstyles__title {
-  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
-  font-size: 25px;
-  line-height: 28px;
+  font-family: $decorTitle;
+  font-size: 30px;
+  line-height: 33px;
   letter-spacing: 1px;
   text-align: center;
   width: max-content;
@@ -23,20 +23,20 @@
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 34px;
+    line-height: 37px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 35px;
-    line-height: 38px;
+    font-size: 40px;
+    line-height: 43px;
   }
 }
 
 .hairstyles__list {
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 40px;
   margin: 25px 0 0 0;
 
   @media (min-width: $tablet) {
@@ -104,56 +104,26 @@
 }
 
 .hairstyles__subtitle {
-  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
-  font-size: 21px;
-  line-height: 24px;
+  font-family: $decorTitle;
+  font-size: 26px;
+  line-height: 29px;
   text-align: center;
   letter-spacing: 2px;
-  position: relative;
-  width: 100%;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 30px;
-    left: 150px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../icons/hair.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0%;
-  }
 
   @media (min-width: $tablet) {
-    font-size: 24px;
-    line-height: 27px;
-
-    &::before {
-      top: 35px;
-      left: 135px;
-      width: 35px;
-      height: 35px;
-    }
+    font-size: 30px;
+    line-height: 33px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 29px;
-    line-height: 32px;
+    font-size: 35px;
+    line-height: 38px;
     margin-top: 100px;
-
-    &::before {
-      top: -50px;
-      left: 190px;
-      width: 45px;
-      height: 45px;
-    }
   }
 }
 
 .hairstyles__description {
-  text-align: center;
-  margin-top: 35px;
+  text-align: justify;
 
   @media (min-width: $tablet) {
     margin-top: 20px;

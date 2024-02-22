@@ -14,9 +14,9 @@
 }
 
 .faq__title {
-  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
-  font-size: 24px;
-  line-height: 27px;
+  font-family: $decorTitle;
+  font-size: 30px;
+  line-height: 33px;
   letter-spacing: 2px;
   text-align: center;
   width: max-content;
@@ -26,13 +26,13 @@
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 34px;
+    line-height: 37px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 35px;
-    line-height: 38px;
+    font-size: 40px;
+    line-height: 43px;
   }
 }
 
@@ -56,9 +56,9 @@
 }
 
 .faq__question {
-  font-family: 'Rubik Moonrocks', 'Arial', sans-serif;
-  font-size: 21px;
-  line-height: 24px;
+  font-family: $decorTitle;
+  font-size: 26px;
+  line-height: 29px;
   letter-spacing: 2px;
   text-align: center;
   cursor: pointer;
@@ -69,18 +69,18 @@
   }
 
   @media (min-width: $tablet) {
-    font-size: 24px;
-    line-height: 27px;
+    font-size: 30px;
+    line-height: 33px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 29px;
-    line-height: 32px;
+    font-size: 35px;
+    line-height: 38px;
   }
 }
 
 .faq__answer {
-  text-align: center;
+  text-align: justify;
   position: absolute;
   margin-top: 10px;
   transform: translateY(-100%);

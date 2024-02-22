@@ -4,7 +4,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  base: '/saturn-braids', // Github
+  // base: '/saturn-braids', // Github
   // base: '/', // Хостинг
   server: {
     open: true,

@@ -2,7 +2,9 @@
   export default {
     data() {
       return {
+
         // Список навигации и контакты
+
         navList: [
           {
             href: '/home',
@@ -30,7 +32,9 @@
       }
     },
     methods: {
+
       // Показ/скрытие мобильного меню
+
       showMenu() {
         const body = document.querySelector('body');
         const menu = body.querySelector('.main-nav__list');
@@ -39,6 +43,7 @@
       },
 
       // Закрытие мобильного меню при нажатии ссылки
+      
       closeOnCLick() {
         const body = document.querySelector('body');
         body.querySelector('.main-nav__list--nav').classList.remove('main-nav__list--open');
@@ -57,7 +62,10 @@
             v-bind:key="li">
             <router-link :to="li.href" 
                          v-on:click="closeOnCLick"
-                         class="main-nav__link main-nav__link--nav">{{ li.text }}</router-link>
+                         active-class="main-nav__link--nav--active"
+                         class="main-nav__link main-nav__link--nav">
+                         {{ li.text }}
+            </router-link>
         </li>
       </ul>
       <router-link to="/home"
