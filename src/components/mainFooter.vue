@@ -1,20 +1,11 @@
 <script>
+  import { useGlobalStore } from '../store';
+
   export default {
-    data() {
+    setup() {
+      const { socials } = useGlobalStore();
       return {
-        // Социальные сети
-        socials: [
-          {
-            href: 'https://vk.com/club_art_in_hair',
-            name: 'Вконтакте',
-            class: 'main-footer__social-link--vk',
-          },
-          {
-            href: 'tg://resolve?domain=@alina_saturn_braids',
-            name: 'Telegram',
-            class: 'main-footer__social-link--telegram',
-          },
-        ],
+        socials,
       }
     }
   }
@@ -27,7 +18,7 @@
         <ul class="main-footer__social-list">
           <li class="main-footer__social-item"
               v-for="li in socials"
-              v-bind:key="li">
+              :key="li">
             <a :href="li.href"
               :class="['main-footer__social-link', li.class]"
               :aria-label="li.name"></a>

@@ -1,54 +1,17 @@
 <script>
+  import { useGlobalStore } from '../store';
+  import { storeToRefs } from 'pinia';
+
   export default {
-    data() {
+    setup() {
+      const { menu } = storeToRefs(useGlobalStore());
+      const { menuStatus, navList, contactList } = useGlobalStore();
       return {
-
-        // Список навигации и контакты
-
-        navList: [
-          {
-            href: '/home',
-            text: 'Главная',
-          },
-          {
-            href: '/faq',
-            text: 'F . A . Q',
-          },
-          {
-            href: '/masters',
-            text: 'Наши мастера',
-          },
-        ],
-        contactList: [
-          {
-            href: 'tel:+7 901 102-83-16',
-            text: '+7 901 102-83-16',
-          },
-          {
-            href: 'https://vk.me/club_art_in_hair',
-            text: 'Онлайн-запись',
-          },
-        ],
+        menu,
+        menuStatus,
+        navList,
+        contactList,
       }
-    },
-    methods: {
-
-      // Показ/скрытие мобильного меню
-
-      showMenu() {
-        const body = document.querySelector('body');
-        const menu = body.querySelector('.main-nav__list');
-        menu.classList.toggle('main-nav__list--open');
-        menu.classList.contains('main-nav__list--open') ? body.style.overflow = 'hidden' : body.removeAttribute('style');
-      },
-
-      // Закрытие мобильного меню при нажатии ссылки
-      
-      closeOnCLick() {
-        const body = document.querySelector('body');
-        body.querySelector('.main-nav__list--nav').classList.remove('main-nav__list--open');
-        body.removeAttribute('style');
-      },
     },
   }
 </script>
@@ -56,12 +19,12 @@
 <template>
   <header class="main-header">
     <nav class="main-nav">
-      <ul class="main-nav__list main-nav__list--nav">
+      <ul :class="['main-nav__list', 'main-nav__list--nav', menu.status === true ? menu.navClass: '']">
         <li class="main-nav__item main-nav__item--nav"
             v-for="li in navList"
-            v-bind:key="li">
+            :key="li">
             <router-link :to="li.href" 
-                         v-on:click="closeOnCLick"
+                         @click="menuStatus(true)"
                          active-class="main-nav__link--nav--active"
                          class="main-nav__link main-nav__link--nav">
                          {{ li.text }}
@@ -69,20 +32,20 @@
         </li>
       </ul>
       <router-link to="/home"
-                   v-on:click="closeOnCLick"
+                   @click="menuStatus(true)"
                    class="main-nav__logo"
                    aria-label="Наш шикарный логотип"></router-link>
       <ul class="main-nav__list main-nav__list--contact">
         <li class="main-nav__item main-nav__item--contact"
             v-for="li in contactList"
-            v-bind:key="li">
+            :key="li">
             <a :href="li.href"
                class="main-nav__link main-nav__link--contact">{{ li.text }}</a>
         </li>
       </ul>
       <button class="main-nav__menu-button"
               type="button"
-              v-on:click="showMenu"
+              @click="menuStatus()"
               aria-label="Открыть меню">
         <span class="main-nav__button-elem"></span>
         <span class="main-nav__button-elem"></span>

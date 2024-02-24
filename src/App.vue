@@ -3,7 +3,18 @@
   import mainHeader from './components/mainHeader.vue';
   import mainFooter from './components/mainFooter.vue';
 
+  import { useGlobalStore } from './store';
+
   export default {
+    setup() {
+      const { preloaderHidden } = useGlobalStore();
+      return {
+        preloaderHidden,
+      }
+    },
+    mounted() {
+      this.preloaderHidden();
+    },
     components: {
       preloader,
       mainHeader,

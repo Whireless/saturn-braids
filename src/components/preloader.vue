@@ -1,17 +1,19 @@
 <script>
+  import { useGlobalStore } from '../store';
+  import { storeToRefs } from 'pinia';
+
   export default {
-    computed: {
-      preloader() {
-        window.onload = () => {
-          document.querySelector('.preloader').classList.add('preloader--hidden');
-        }
-      },
+    setup() {
+      const { preloader } = storeToRefs(useGlobalStore());
+      return {
+        preloader,
+      }
     },
   }
 </script>
 
 <template>
-  <div v-bind:class="['preloader', preloader]">
+  <div :class="['preloader', {'preloader--hidden' : preloader}]">
     <span class="preloader__logo"></span>
   </div>
 </template>
