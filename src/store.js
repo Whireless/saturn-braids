@@ -8,11 +8,12 @@ export const useGlobalStore = defineStore('globalStore', {
 
     // Состояние мобильного меню
 
-    menu: {
-      open: false,
-      hidden: 'hidden',
-      navClass: 'main-nav__list--open',
-    },
+    menuStatus: false,
+
+    // menu: {
+    //   open: false,
+    //   navClass: 'main-nav__list--open',
+    // },
 
     // Список навигации и контактов
 
@@ -206,25 +207,33 @@ export const useGlobalStore = defineStore('globalStore', {
   actions: {
     // Скрытие прелоадера
 
-    preloaderHidden() {
-      window.onload = () => this.preloader = true;
-    },
+    preloaderHidden() {window.onload = () => this.preloader = true},
 
     // Открытие/закрытие моб. меню
 
-    menuStatus(logo) {
-      if(logo) {
-        this.menu.status = false;
-        document.body.removeAttribute('style');
+    mobileMenu(logo) {
+      if (!this.menuStatus && !logo) {
+        this.menuStatus = true;
+        document.body.style.overflow = 'hidden';
       } else {
-        if(this.menu.status === false) {
-          this.menu.status = true;
-          document.body.style.overflow = this.menu.hidden;
-        } else {
-          this.menu.status = false;
-          document.body.removeAttribute('style');
-        }
+        this.menuStatus = false;
+        document.body.removeAttribute('style');
       }
     },
+
+    // menuStatus(logo) {
+    //   if(logo) {
+    //     this.menu.status = false;
+    //     document.body.removeAttribute('style');
+    //   } else {
+    //     if(this.menu.status === false) {
+    //       this.menu.status = true;
+    //       document.body.style.overflow = 'hidden';
+    //     } else {
+    //       this.menu.status = false;
+    //       document.body.removeAttribute('style');
+    //     }
+    //   }
+    // },
   },
 });

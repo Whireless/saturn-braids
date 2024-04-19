@@ -4,11 +4,11 @@
 
   export default {
     setup() {
-      const { menu } = storeToRefs(useGlobalStore());
-      const { menuStatus, navList, contactList } = useGlobalStore();
+      const { menuStatus } = storeToRefs(useGlobalStore());
+      const { mobileMenu, navList, contactList } = useGlobalStore();
       return {
-        menu,
         menuStatus,
+        mobileMenu,
         navList,
         contactList,
       }
@@ -19,12 +19,12 @@
 <template>
   <header class="main-header">
     <nav class="main-nav">
-      <ul :class="['main-nav__list', 'main-nav__list--nav', menu.status === true ? menu.navClass: '']">
+      <ul :class="['main-nav__list', 'main-nav__list--nav', {'main-nav__list--open' : menuStatus}]">
         <li class="main-nav__item main-nav__item--nav"
             v-for="li in navList"
             :key="li">
             <router-link :to="li.href" 
-                         @click="menuStatus(true)"
+                         @click="mobileMenu(true)"
                          active-class="main-nav__link--nav--active"
                          class="main-nav__link main-nav__link--nav">
                          {{ li.text }}
@@ -32,7 +32,7 @@
         </li>
       </ul>
       <router-link to="/home"
-                   @click="menuStatus(true)"
+                   @click="mobileMenu(true)"
                    class="main-nav__logo"
                    aria-label="Наш шикарный логотип"></router-link>
       <ul class="main-nav__list main-nav__list--contact">
@@ -45,7 +45,7 @@
       </ul>
       <button class="main-nav__menu-button"
               type="button"
-              @click="menuStatus()"
+              @click="mobileMenu()"
               aria-label="Открыть меню">
         <span class="main-nav__button-elem"></span>
         <span class="main-nav__button-elem"></span>

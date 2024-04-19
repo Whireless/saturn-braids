@@ -16,7 +16,7 @@ export default defineConfig({
     vue(),
     ViteImageOptimizer({
       jpg: {
-        quality: 80,
+        quality: 65,
       },
     }),
   ],

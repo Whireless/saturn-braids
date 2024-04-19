@@ -19,6 +19,10 @@
     margin: 0 auto;
     padding: 25px 80px;
   }
+
+  @media (min-width: $laptop) {
+    padding: 30px 100px;
+  }
 }
 
 .main-nav__list {

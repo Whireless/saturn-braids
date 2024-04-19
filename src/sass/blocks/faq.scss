@@ -11,6 +11,10 @@
     margin: 105px auto 0 auto;
     padding: 70px 0;
   }
+
+  @media (min-width: $laptop) {
+    margin: 115px auto 0 auto;
+  }
 }
 
 .faq__title {
