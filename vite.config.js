@@ -5,18 +5,27 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
   // base: '/saturn-braids', // Github
-  // base: '/', // Хостинг
   server: {
     open: true,
   },
   build: {
     outDir: './build',
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/sass/variables.scss";`,
+      },
+    },
+  },
   plugins: [
     vue(),
     ViteImageOptimizer({
       jpg: {
-        quality: 65,
+        quality: 60,
+      },
+      jpeg: {
+        quality: 70,
       },
     }),
   ],

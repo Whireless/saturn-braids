@@ -5,6 +5,9 @@
 
   import { useGlobalStore } from './store';
 
+  import { gsap, ScrollTrigger } from 'gsap/all';
+  gsap.registerPlugin(ScrollTrigger);
+
   export default {
     setup() {
       const { preloaderHidden } = useGlobalStore();
@@ -14,6 +17,13 @@
     },
     mounted() {
       this.preloaderHidden();
+
+      // Анимации
+
+      window.addEventListener('load', () => {
+        const afterLoad = gsap.timeline({delay: 0.3});
+        afterLoad.from('.main-nav', {y: '-100%', opacity: 0,})
+      });
     },
     components: {
       preloader,

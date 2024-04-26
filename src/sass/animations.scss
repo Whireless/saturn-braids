@@ -98,7 +98,36 @@
   }
 }
 
+// Анимация кнопки во вступлении
+
+@keyframes gradient {
+  0% {
+      background-position: 80% 0%;
+  }
+  50% {
+      background-position: 20% 100%;
+  }
+  100% {
+      background-position: 80% 0%;
+  }
+}
+
+// Анимация стрелки во вступлении
+
+@keyframes arrow {
+  0% {
+    transform: translateY(-20%) rotate(180deg);
+  }
+  50% {
+    transform: translateY(20%) rotate(180deg);
+  }
+  100% {
+    transform: translateY(-20%) rotate(180deg);
+  }
+}
+
 // Переходы между компонентами
+
 .v-enter-to,
 .v-leave-from {
   opacity: 1;

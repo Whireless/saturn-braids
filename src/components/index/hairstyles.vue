@@ -1,5 +1,41 @@
+<script>
+  import { useGlobalStore } from '/src/store';
+
+  export default {
+    setup() {
+      const { hairstyles } = useGlobalStore();
+      return {
+        hairstyles,
+      }
+    },
+  }
+</script>
+
+<template>
+  <article class="hairstyles">
+    <div class="container">
+      <h2 class="hairstyles__title">О причёсках</h2>
+      <p class="hairstyles__description">Немного подробнее о том, что мы делаем</p>
+      <ul class="hairstyles__list">
+        <li class="hairstyles__item"
+            v-for="li in hairstyles"
+            :key="li">
+          <img :src="li.img"
+              :alt="li.alt"
+              class="hairstyles__img"
+              width="335" height="320">
+          <h3 class="hairstyles__subtitle">{{ li.title }}</h3>
+          <p class="hairstyles__info">{{ li.desc }}</p>
+          <span class="hairstyles__price">{{ li.price }}</span>
+        </li>
+      </ul>
+    </div>
+  </article>
+</template>
+
+<style lang="scss">
 .hairstyles {
-  padding: 30px 0;
+  padding: 40px 0;
 
   @media (min-width: $tablet) {
     padding: 50px 0;
@@ -33,19 +69,39 @@
   }
 }
 
+.hairstyles__description {
+  font-size: 18px;
+  line-height: 21px;
+  width: max-content;
+  margin: 25px auto 0 auto;
+
+  @media (min-width: $tablet) {
+    font-size: 21px;
+    line-height: 24px;
+    margin: 35px auto 0 auto;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 25px;
+    line-height: 28px;
+    margin: 45px auto 0 auto;
+  }
+}
+
 .hairstyles__list {
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
-  margin: 25px 0 0 0;
+  row-gap: 60px;
+  margin: 35px 0 0 0;
 
   @media (min-width: $tablet) {
-    row-gap: 60px;
+    row-gap: 80px;
     margin: 50px 0 0 0;
   }
 
   @media (min-width: $desktop) {
-    row-gap: 70px;
+    row-gap: 90px;
+    margin: 70px 0 0 0;
   }
 }
 
@@ -122,7 +178,7 @@
   }
 }
 
-.hairstyles__description {
+.hairstyles__info {
   text-align: justify;
 
   @media (min-width: $tablet) {
@@ -138,7 +194,16 @@
   display: block;
   width: max-content;
   margin: 0 auto;
-  padding: 5px;
+  padding: 3px 7px;
   border: 1px solid $lightBlack;
   border-radius: 30px;
+
+  @media (min-width: $tablet) {
+    padding: 4px 9px;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 5px 11px;
+  }
 }
+</style>

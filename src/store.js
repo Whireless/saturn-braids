@@ -20,11 +20,12 @@ export const useGlobalStore = defineStore('globalStore', {
     navList: [
       { href: '/home', text: 'Главная', },
       { href: '/faq', text: 'F . A . Q', },
-      { href: '/masters', text: 'Наши мастера', },
+      { href: '/masters', text: 'Мастера', },
+      // { href: '/education', text: 'Обучение', },
     ],
     contactList: [
       { href: 'tel:+7 901 102-83-16', text: '+7 901 102-83-16', },
-      { href: 'https://vk.me/club_art_in_hair', text: 'Онлайн-запись', },
+      // { href: 'https://vk.me/club_art_in_hair', text: 'Онлайн-запись', },
     ],
 
     // Информация по причёскам
