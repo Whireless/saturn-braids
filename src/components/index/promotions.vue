@@ -3,9 +3,9 @@
 
   export default {
     setup() {
-      const { readyList } = useGlobalStore();
+      const { promotions } = useGlobalStore();
       return {
-        readyList,
+        promotions
       }
     },
   }
@@ -15,130 +15,165 @@
   <section class="promotions">
     <div class="container">
       <h2 class="promotions__title">Акции</h2>
-      <p class="promotions__description">Проводимые акции для клиентов</p>
-      <article class="promotions__actions">
-        <h3 class="promotions__subtitle">Карта клиента</h3>
-        <img class="promotions__img" src="/img/actions/action1.jpeg" width="335" height="210" alt="Скидочная карта постоянным клиентам">
-        <p class="promotions__action-info">
-          После 1го посещения нашей студии вы получаете скидочную карту постоянного клиента,
-          на которой мы ставим отметки после каждого вашего посещения,
-          что даёт возможность получить скидку на заплетение при последующих посещениях студии.
-          3е посещение - скидка <span class="promotions__percent">10%</span>, 5е посещение - скидка <span class="promotions__percent">20%</span>.
-        </p>
-      </article>
+      <ul class="promotions__list">
+        <li :class="['promotions__item',{'promotions__item--inactive': !item.active}]" v-for="item in promotions" :key="item">
+          <img class="promotions__img" src="/img/promotions/clientCard.jpeg" width="100%" height="210" alt="Изображение акции">
+          <h3 class="promotions__suptitle">{{ item.title }}</h3>
+          <p class="promotions__description">{{ item.description }}</p>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 
 <style lang="scss">
-.promotions {
-  padding: 40px 0;
-}
-
 .promotions__title {
   font-family: $decorTitle;
-  font-size: 30px;
-  line-height: 33px;
+  font-size: 37px;
+  line-height: 40px;
   letter-spacing: 1px;
   text-align: center;
   width: max-content;
   margin: 0 auto;
-  padding: 5px 30px;
-  border: 1px solid $lightBlack;
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 34px;
-    line-height: 37px;
+    font-size: 45px;
+    line-height: 48px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 40px;
-    line-height: 43px;
+    font-size: 55px;
+    line-height: 60px;
+  }
+
+  @media (min-width: $laptop) {
+    font-size: 65px;
+    line-height: 70px;
   }
 }
 
-.promotions__description {
-  font-size: 18px;
-  line-height: 21px;
-  width: max-content;
-  margin: 25px auto 0 auto;
-
-  @media (min-width: $tablet) {
-    font-size: 21px;
-    line-height: 24px;
-    margin: 35px auto 0 auto;
-  }
-
-  @media (min-width: $desktop) {
-    font-size: 25px;
-    line-height: 28px;
-    margin: 45px auto 0 auto;
-  }
-}
-
-.promotions__actions {
+.promotions__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
   margin: 35px auto 0 auto;
 
   @media (min-width: $tablet) {
-    margin: 50px auto 0 auto;
+    row-gap: 20px;
+    column-gap: 30px;
+    margin: 40px auto 0 auto;
   }
 
   @media (min-width: $desktop) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 40px 330px;
-    column-gap: 30px;
-    margin: 70px auto 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+  }
+
+  @media (min-width: $laptop) {
+    margin: 50px auto 0 auto;
   }
 }
 
-.promotions__subtitle {
+.promotions__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 18px;
+  border: 2px solid $blueviolet;
+  border-radius: 20px;
+
+  &--inactive {
+    border: 2px solid $grey;
+    opacity: 0.5;
+  }
+
+  @media (min-width: $tablet) {
+    width: 636px;
+    padding: 24px;
+  }
+
+  @media (min-width: $desktop) {
+    // row-gap: 16px;
+    width: 514px;
+    padding: 22px;
+  }
+
+  @media (min-width: $laptop) {
+    row-gap: 30px;
+    width: 680px;
+    padding: 50px 28px 28px 28px;
+  }
+}
+
+.promotions__number {
+  align-self: center;
+
+  @media (min-width: $tablet) {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 65px;
+    height: 65px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.promotions__img {
+  @media (min-width: $tablet) {
+    height: 360px;
+  }
+
+  @media (min-width: $desktop) {
+    height: 310px;
+  }
+
+  @media (min-width: $laptop) {
+    height: 400px;
+  }
+}
+
+.promotions__suptitle {
   font-family: $decorTitle;
   font-size: 26px;
-  line-height: 29px;
+  line-height: 27px;
   text-align: center;
   letter-spacing: 2px;
 
   @media (min-width: $tablet) {
     font-size: 30px;
-    line-height: 33px;
+    line-height: 31px;
+    flex-basis: 100%;
   }
 
   @media (min-width: $desktop) {
-    font-size: 35px;
-    line-height: 38px;
-    order: 1;
+    font-size: 39px;
+    line-height: 40px;
     height: max-content;
   }
-}
 
-.promotions__img {
-  display: block;
-  margin: 20px auto;
-
-  @media (min-width: $tablet) {
-    width: 668px;
-    height: 380px;
-  }
-
-  @media (min-width: $desktop) {
-    margin: 0 auto;
+  @media (min-width: $laptop) {
+    font-size: 44px;
+    line-height: 46px;
   }
 }
 
-.promotions__action-info {
+.promotions__description {
   text-align: justify;
-
-  @media (min-width: $desktop) {
-    grid-column: 2;
-    grid-row: 2;
-    margin-top: 80px;
-    order: 2;
-  }
+  font-weight: 300;
 }
 
-.promotions__percent {
-  color: $blueviolet;
-}
+// .promotions__percent {
+//   color: $blueviolet;
+// }
 </style>

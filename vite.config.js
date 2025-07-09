@@ -1,10 +1,12 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import createSvgSpritePlugin from 'vite-plugin-svg-spriter';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
   // base: '/saturn-braids', // Github
+  base: '/', // Хостинг
   server: {
     open: true,
   },
@@ -15,6 +17,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@import "@/sass/variables.scss";`,
+        api: 'modern-compiler',
       },
     },
   },
@@ -22,10 +25,16 @@ export default defineConfig({
     vue(),
     ViteImageOptimizer({
       jpg: {
-        quality: 60,
+        quality: 55,
       },
       jpeg: {
-        quality: 70,
+        quality: 65,
+      },
+    }),
+    createSvgSpritePlugin({
+      svgFolder: 'src/icons',
+      transformIndexHtmlTag: {
+        injectTo: 'body',
       },
     }),
   ],

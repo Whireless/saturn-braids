@@ -21,7 +21,11 @@
               :key="li">
             <a :href="li.href"
               :class="['main-footer__social-link', li.class]"
-              :aria-label="li.name"></a>
+              :aria-label="li.name">
+                <svg class="main-footer__social-icon" width="100%" height="100%">
+                  <use :href="li.icon"></use>
+                </svg>
+              </a>
           </li>
         </ul>
         <a class="main-footer__feedback" href="https://yandex.ru/maps/org/saturn_braids/156050898898/reviews/?ll=30.368689%2C59.869070&tab=reviews&z=15">Оставить отзыв</a>
@@ -29,7 +33,7 @@
           г.Санкт-Петербург, ул. Будапештская, д. 11
           (рядом с метро Международная)
         </p>
-        <span class="main-footer__copyright">Saturn Braids © 2024</span>
+        <span class="main-footer__copyright">Saturn Braids © 2025</span>
       </article>
       <span class="main-footer__dev">dev: <a href="https://github.com/Whireless" title="Разработчик">whireless</a></span>
     </div>
@@ -40,11 +44,6 @@
 .main-footer {
   color: $whitesmoke;
   background-color: $lightBlack;
-  padding: 40px 0;
-
-  @media (min-width: $tablet) {
-    padding: 50px 0;
-  }
 }
 
 .main-footer__interaction {
@@ -65,6 +64,10 @@
     column-gap: 0;
     justify-content: space-between;
   }
+
+  @media (min-width: $laptop) {
+    font-size: 21px;
+  }
 }
 
 .main-footer__social-list {
@@ -74,12 +77,16 @@
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (min-width: $laptop) {
+    column-gap: 25px;
+  }
 }
 
 .main-footer__feedback {
   text-decoration: none;
   color: $blueviolet;
-  transition: 0.5s;
+  transition: 0.4s;
 
   &:hover {
     opacity: 0.5;
@@ -91,17 +98,7 @@
   display: block;
   width: 35px;
   height: 35px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition: 0.5s;
-
-  &--vk {
-    background-image: url("/icons/vk.svg");
-  }
-
-  &--telegram {
-    background-image: url("/icons/telegram.svg");
-  }
+  transition: 0.4s;
 
   @media (min-width: $tablet) {
     width: 40px;
@@ -111,6 +108,11 @@
   @media (min-width: $desktop) {
     width: 45px;
     height: 45px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 50px;
+    height: 50px;
   }
 
   &:hover {
@@ -133,7 +135,7 @@
   color: $grey;
   display: block;
   width: max-content;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
 
   @media (min-width: $desktop) {
     margin: 0 0 0 auto;

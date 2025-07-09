@@ -15,6 +15,9 @@
         <h1 class="intro__title">Студия афропричёсок Saturn Braids</h1>
         <p class="intro__description">Делаем лучшие причёски в Питере!</p>
         <go-braid></go-braid>
+        <svg class="intro__arrow" width="50" height="60">
+          <use href="#arrow"></use>
+        </svg>
       </section>
     </div>
   </article>
@@ -27,45 +30,18 @@
   background-image: url("../img/intro-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 285px 0 200px 0;
+  padding: 260px 0 220px 0;
 
   @media (min-width: $tablet) {
-    padding: 260px 0 230px 0;
+    padding: 220px 0 230px 0;
   }
 
   @media (min-width: $desktop) {
     background-position: center;
-    padding: 260px 0 230px 0;
   }
 
   @media (min-width: $laptop) {
-    padding: 330px 0 250px 0;
-  }
-}
-
-.intro__info {
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 43%;
-    bottom: -90px;
-    background-image: url("/icons/arrow.svg");
-    width: 50px;
-    height: 60px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    animation: arrow 3s infinite linear;
-
-    @media (min-width: $tablet) {
-      left: 46%;
-      bottom: -105px;
-    }
-
-    @media (min-width: $desktop) {
-      left: 48%;
-    }
+    padding: 320px 0 320px 0;
   }
 }
 
@@ -84,12 +60,13 @@
   }
 
   @media (min-width: $laptop) {
-    font-size: 42px;
-    line-height: 45px;
+    font-size: 53px;
+    line-height: 56px;
   }
 }
 
 .intro__description {
+  font-weight: 300;
   margin-top: 10px;
   margin-bottom: 50px;
 
@@ -99,17 +76,30 @@
   }
 
   @media (min-width: $desktop) {
-    font-size: 24px;
-    line-height: 27px;
+    font-size: 25px;
+    line-height: 28px;
     margin-top: 25px;
     margin-bottom: 75px;
   }
 
   @media (min-width: $laptop) {
-    font-size: 26px;
-    line-height: 29px;
+    font-size: 37px;
+    line-height: 40px;
     margin-top: 30px;
     margin-bottom: 85px;
+  }
+}
+
+.intro__arrow {
+  margin-top: 35px;
+  animation: arrow 2s infinite linear;
+
+  @media (min-width: $tablet) {
+    margin-top: 40px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-top: 45px;
   }
 }
 </style>

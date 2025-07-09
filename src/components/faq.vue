@@ -13,7 +13,7 @@
       }
     },
     mounted() {
-      const afterLoad = gsap.timeline({delay: 0.8});
+      const afterLoad = gsap.timeline({delay: 0.3});
 
       const answers = gsap.utils.toArray('.faq__details');
 
@@ -34,16 +34,20 @@
   <section class="faq">
     <div class="container">
       <h2 class="faq__title">F . A . Q</h2>
-      <p class="faq__description">Часто задаваемые вопросы</p>
       <article class="faq__faq-block">
         <details class="faq__details"
             v-for="li in faqList"
             :key="li">
-          <summary class="faq__question" >{{ li.question }}</summary>
+          <summary class="faq__question">
+            <svg class="faq__star-icon" width="25" height="25">
+              <use href="#star"></use>
+            </svg>
+            {{ li.question }}
+          </summary>
           <p class="faq__answer">{{ li.answer }}</p>
         </details>
       </article>
-      <p class="faq__go-braid">Развеяла свои сомнения и решилась?</p>
+      <p class="faq__go-braid">Развеял(а) свои сомнения и решился(ась)?</p>
       <go-braid></go-braid>
     </div>
   </section>
@@ -51,63 +55,44 @@
 
 .<style lang="scss">
 .faq {
-  margin: 90px auto 0 auto;
-  padding: 30px 0;
+  margin: 70px auto 0 auto;
 
   @media (min-width: $tablet) {
-    margin: 100px auto 0 auto;
-    padding: 50px 0;
+    margin: 80px auto 0 auto;
   }
 
   @media (min-width: $desktop) {
-    margin: 105px auto 0 auto;
-    padding: 70px 0;
+    margin: 95px auto 0 auto;
   }
 
   @media (min-width: $laptop) {
-    margin: 115px auto 0 auto;
+    margin: 150px auto 0 auto;
   }
 }
 
 .faq__title {
   font-family: $decorTitle;
-  font-size: 30px;
-  line-height: 33px;
+  font-size: 37px;
+  line-height: 40px;
   letter-spacing: 2px;
   text-align: center;
   width: max-content;
   margin: 0 auto;
-  padding: 5px 30px;
-  border: 1px solid $lightBlack;
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 34px;
-    line-height: 37px;
+    font-size: 45px;
+    line-height: 48px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 40px;
-    line-height: 43px;
-  }
-}
-
-.faq__description {
-  font-size: 18px;
-  line-height: 21px;
-  width: max-content;
-  margin: 25px auto 0 auto;
-
-  @media (min-width: $tablet) {
-    font-size: 21px;
-    line-height: 24px;
-    margin: 35px auto 0 auto;
+    font-size: 55px;
+    line-height: 60px;
   }
 
-  @media (min-width: $desktop) {
-    font-size: 25px;
-    line-height: 28px;
-    margin: 45px auto 0 auto;
+  @media (min-width: $laptop) {
+    font-size: 65px;
+    line-height: 70px;
   }
 }
 
@@ -125,12 +110,17 @@
     row-gap: 40px;
     margin-top: 70px;
   }
+
+  @media (min-width: $laptop) {
+    margin-top: 90px;
+  }
 }
 
 .faq__details {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 323px;
   padding: 10px;
   border: 1px solid $lightBlack;
   border-radius: 20px;
@@ -138,15 +128,24 @@
 
   &[open] {
     .faq__question {
-      &::before {
-        transform: rotate(360deg);
+      .faq__star-icon {
+        transform: rotate(180deg);
       }
     }
+  }
+
+  @media (min-width: $tablet) {
+    width: 580px;
   }
 
   @media (min-width: $desktop) {
     width: 800px;
     margin: 0 auto;
+  }
+
+  @media (min-width: $laptop) {
+    width: 1100px;
+    padding: 20px;
   }
 }
 
@@ -156,59 +155,73 @@
   line-height: 25px;
   letter-spacing: 2px;
   text-align: center;
-  position: relative;
-  padding-left: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
   cursor: pointer;
   list-style: none;
-  transition: 0.5s;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 5px;
-    background-image: url('/icons/star.svg');
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-    transform: rotate(0);
-    transition: 1s;
+  // Скрытие стрелочек для IOS
+
+  &::-webkit-details-marker {
+    display: none;
   }
+
+  ////
 
   @media (min-width: $tablet) {
     font-size: 30px;
     line-height: 33px;
-    padding-left: 0px;
-
-    &::before {
-      top: 1px;
-      left: 10px;
-      width: 30px;
-      height: 30px;
-    }
+    column-gap: 20px;
   }
 
   @media (min-width: $desktop) {
     font-size: 35px;
     line-height: 38px;
+    column-gap: 25px;
+  }
 
-    &::before {
-      top: 2px;
-      left: 50px;
-      width: 35px;
-      height: 35px;
-    }
+  @media (min-width: $laptop) {
+    font-size: 40px;
+    line-height: 45px;
+    column-gap: 35px;
+  }
+}
+
+.faq__star-icon {
+  transform: rotate(0);
+  transition: 0.4s;
+
+  @media (min-width: $tablet) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 42px;
+    height: 42px;
   }
 }
 
 .faq__answer {
+  font-weight: 300;
   text-align: justify;
   padding: 15px;
+
+  @media (min-width: $tablet) {
+    padding: 20px 15px;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 25px 15px;
+  }
 }
 
 .faq__go-braid {
   font-size: 18px;
   line-height: 21px;
+  font-weight: 300;
   width: max-content;
   margin: 30px auto 20px auto;
 

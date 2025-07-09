@@ -19,15 +19,19 @@
   background-size: 400%;
   margin: 0 auto;
   padding: 15px 30px;
-  border-radius: 30px;
+  border-radius: 40px;
   transition: 0.5s;
 
   &:hover {
-    opacity: 0.70;
+    opacity: 0.7;
   }
 
   @media (min-width: $tablet) {
     padding: 17px 35px;
+  }
+
+  @media (min-width: $laptop) {
+    padding: 20px 40px;
   }
 }
 </style>

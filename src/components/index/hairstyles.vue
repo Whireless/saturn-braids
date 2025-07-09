@@ -12,10 +12,9 @@
 </script>
 
 <template>
-  <article class="hairstyles">
+  <article class="hairstyles" id="hairstyles">
     <div class="container">
-      <h2 class="hairstyles__title">О причёсках</h2>
-      <p class="hairstyles__description">Немного подробнее о том, что мы делаем</p>
+      <h2 class="hairstyles__title">Виды причесок</h2>
       <ul class="hairstyles__list">
         <li class="hairstyles__item"
             v-for="li in hairstyles"
@@ -23,8 +22,13 @@
           <img :src="li.img"
               :alt="li.alt"
               class="hairstyles__img"
-              width="335" height="320">
-          <h3 class="hairstyles__subtitle">{{ li.title }}</h3>
+              width="330" height="320">
+          <div class="hairstyles__intro">
+            <svg class="hairstyles__icon" width="40" height="40">
+              <use href="#braids"></use>
+            </svg>
+            <h3 class="hairstyles__subtitle">{{ li.title }}</h3>
+          </div>
           <p class="hairstyles__info">{{ li.desc }}</p>
           <span class="hairstyles__price">{{ li.price }}</span>
         </li>
@@ -34,57 +38,29 @@
 </template>
 
 <style lang="scss">
-.hairstyles {
-  padding: 40px 0;
-
-  @media (min-width: $tablet) {
-    padding: 50px 0;
-  }
-
-  @media (min-width: $desktop) {
-    padding: 70px 0;
-  }
-}
-
 .hairstyles__title {
   font-family: $decorTitle;
-  font-size: 30px;
-  line-height: 33px;
+  font-size: 37px;
+  line-height: 40px;
   letter-spacing: 1px;
   text-align: center;
   width: max-content;
   margin: 0 auto;
-  padding: 5px 30px;
-  border: 1px solid $lightBlack;
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 34px;
-    line-height: 37px;
+    font-size: 45px;
+    line-height: 48px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 40px;
-    line-height: 43px;
-  }
-}
-
-.hairstyles__description {
-  font-size: 18px;
-  line-height: 21px;
-  width: max-content;
-  margin: 25px auto 0 auto;
-
-  @media (min-width: $tablet) {
-    font-size: 21px;
-    line-height: 24px;
-    margin: 35px auto 0 auto;
+    font-size: 55px;
+    line-height: 60px;
   }
 
-  @media (min-width: $desktop) {
-    font-size: 25px;
-    line-height: 28px;
-    margin: 45px auto 0 auto;
+  @media (min-width: $laptop) {
+    font-size: 65px;
+    line-height: 70px;
   }
 }
 
@@ -103,6 +79,11 @@
     row-gap: 90px;
     margin: 70px 0 0 0;
   }
+
+  @media (min-width: $laptop) {
+    row-gap: 120px;
+    margin: 90px 0 0 0;
+  }
 }
 
 .hairstyles__item {
@@ -111,11 +92,12 @@
   flex-direction: column;
   align-items: center;
   row-gap: 10px;
+  transition: 0.4s;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     height: 1px;
     width: 100%;
     background-color: $grey;
@@ -124,25 +106,38 @@
 
   @media (min-width: $tablet) {
     display: grid;
-    grid-template-columns: 335px 310px;
-    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 330px 330px;
+    grid-template-rows: repeat(3, auto);
     justify-content: space-between;
     row-gap: 50px;
 
     &:nth-child(even) {
-      grid-template-columns: 310px 335px;
+      grid-template-columns: 330px 330px;
       
       .hairstyles__img {
         grid-column: 2;
       }
     }
+
+    &::after {
+      bottom: -20px;
+    }
   }
 
   @media (min-width: $desktop) {
-    grid-template-columns: 520px 420px;
+    grid-template-columns: 520px 560px;
+    transition: 0.4s;
 
     &:nth-child(even) {
-      grid-template-columns: 420px 520px;
+      grid-template-columns: 560px 520px;
+    }
+  }
+
+  @media (min-width: $laptop) {
+    grid-template-columns: 620px 750px;
+
+    &:nth-child(even) {
+      grid-template-columns: 750px 620px;
     }
   }
 }
@@ -157,6 +152,47 @@
     width: 520px;
     height: 490px;
   }
+
+  @media (min-width: $laptop) {
+    width: 620px;
+    height: 590px;
+  }
+}
+
+.hairstyles__intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 12px;
+
+  @media (min-width: $tablet) {
+    column-gap: 16px;
+  }
+
+  @media (min-width: $desktop) {
+    column-gap: 25px;
+  }
+
+  @media (min-width: $laptop) {
+    column-gap: 35px;
+  }
+}
+
+.hairstyles__icon {
+  @media (min-width: $tablet) {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 65px;
+    height: 65px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .hairstyles__subtitle {
@@ -165,28 +201,44 @@
   line-height: 29px;
   text-align: center;
   letter-spacing: 2px;
+  position: relative;
 
   @media (min-width: $tablet) {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 32px;
+    line-height: 35px;
+    width: max-content;
+
+    justify-self: center;
   }
 
   @media (min-width: $desktop) {
-    font-size: 35px;
-    line-height: 38px;
-    margin-top: 100px;
+    font-size: 42px;
+    line-height: 45px;
+  }
+
+  @media (min-width: $laptop) {
+    font-size: 52px;
+    line-height: 55px;
   }
 }
 
 .hairstyles__info {
+  font-weight: 300;
   text-align: justify;
 
   @media (min-width: $tablet) {
-    margin-top: 20px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   @media (min-width: $desktop) {
-    margin-top: 0;
+    font-size: 26px;
+    line-height: 33px;
+  }
+
+  @media (min-width: $laptop) {
+    font-size: 37px;
+    line-height: 42px;
   }
 }
 
@@ -204,6 +256,10 @@
 
   @media (min-width: $desktop) {
     padding: 5px 11px;
+  }
+
+  @media (min-width: $laptop) {
+    padding: 10px 20px;
   }
 }
 </style>

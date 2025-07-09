@@ -14,7 +14,11 @@
 
 <template>
   <div :class="['preloader', {'preloader--hidden' : preloader}]">
-    <span class="preloader__logo"></span>
+    <span class="preloader__logo">
+      <svg class="main-nav__logo-icon" width="100%" height="100%">
+        <use href="#logo"></use>
+      </svg>
+    </span>
   </div>
 </template>
 
@@ -37,31 +41,30 @@
   background: $gradient1;
   background-size: 400%;
   animation: gradient 3s infinite linear;
-  transition: opacity 1.6s, visibility 0s 0s;
+  transition: opacity 1.2s, visibility 0s 0s;
 
   &--hidden {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 1.6s, visibility 0s 1.6s;
+    transition: opacity 1.2s, visibility 0s 1.2s;
   }
 }
 
 .preloader__logo {
-  background-image: url("../icons/logo.svg");
-  background-repeat: no-repeat;
-  width: 200px;
-  height: 200px;
+  width: 175px;
+  height: 80px;
   position: relative;
   margin: 100px auto;
-  padding: 10px 15px;
   border-radius: 45px;
 
   @media (min-width: $tablet) {
-    padding: 15px 20px;
+    width: 225px;
+    height: 100px;
   }
 
   @media (min-width: $desktop) {
-    padding: 20px 25px;
+    width: 290px;
+    height: 130px;
   }
 }
 </style>

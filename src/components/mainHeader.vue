@@ -34,7 +34,11 @@
       <router-link to="/home"
                    @click="mobileMenu(true)"
                    class="main-nav__logo"
-                   aria-label="Наш шикарный логотип"></router-link>
+                   aria-label="Наш шикарный логотип">
+                    <svg class="main-nav__logo-icon" width="100%" height="100%">
+                      <use href="#logo"></use>
+                    </svg>
+      </router-link>
       <ul class="main-nav__list main-nav__list--contact">
         <li class="main-nav__item main-nav__item--contact"
             v-for="li in contactList"
@@ -62,7 +66,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $lightBlack;
-  padding: 15px;
+  padding: 10px 15px;
   left: 0;
   right: 0;
   z-index: 1;
@@ -70,16 +74,16 @@
   @media (min-width: $tablet) {
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 15px 40px;
   }
 
   @media (min-width: $desktop) {
     margin: 0 auto;
-    padding: 25px 80px;
+    padding: 20px 60px;
   }
 
   @media (min-width: $laptop) {
-    padding: 30px 100px;
+    padding: 35px 150px;
   }
 }
 
@@ -89,7 +93,7 @@
   &--nav {
     text-align: center;
     position: fixed;
-    top: 90px;
+    top: 70px;
     left: 0;
     right: 0;
     display: flex;
@@ -106,7 +110,7 @@
     @media (min-width: $tablet) {
       position: static;
       flex-direction: row;
-      column-gap: 25px;
+      column-gap: 30px;
       height: min-content;
       padding: 0;
       transform: translateX(0);
@@ -114,6 +118,10 @@
 
     @media (min-width: $desktop) {
       column-gap: 40px;
+    }
+
+    @media (min-width: $laptop) {
+      column-gap: 60px;
     }
   }
 
@@ -173,7 +181,7 @@
   text-decoration: none;
   color: $whitesmoke;
   width: 100%;
-  transition: 0.5s;
+  transition: 0.4s;
 
   &:hover {
     color: $lightBlack;
@@ -251,13 +259,18 @@
       font-size: 21px;
       line-height: 24px;
     }
+
+    @media (min-width: $laptop) {
+      font-size: 30px;
+      line-height: 34px;
+    }
   }
 
   &--contact {
     padding: 3px 8px;
     color: $lightBlack;
     background-color: $whitesmoke;
-    border-radius: 20px;
+    border-radius: 30px;
 
     &:hover {
       opacity: 0.5;
@@ -266,13 +279,19 @@
     @media (min-width: $tablet) {
       font-size: 16px;
       line-height: 19px;
-      padding: 3px 10px;
+      padding: 5px 12px;
     }
 
     @media (min-width: $desktop) {
       font-size: 20px;
       line-height: 23px;
-      padding: 5px 12px;
+      padding: 8px 15px;
+    }
+
+    @media (min-width: $laptop) {
+      font-size: 30px;
+      line-height: 34px;
+      padding: 10px 20px;
     }
   }
 }
@@ -280,21 +299,25 @@
 .main-nav__logo {
   display: block;
   width: 110px;
-  height: 60px;
-  background-image: url("../icons/logo.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 0%;
-  order: 1;
-  transition: 0.5s;
+  height: 50px;
+  transition: 0.4s;
 
   &:hover {
     opacity: 0.5;
   }
 
+  @media (min-width: $tablet) {
+    order: 1;
+  }
+
   @media (min-width: $desktop) {
-    width: 140px;
+    width: 145px;
     height: 55px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 180px;
+    height: 80px;
   }
 }
 
