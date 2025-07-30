@@ -5,8 +5,8 @@ import createSvgSpritePlugin from 'vite-plugin-svg-spriter';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  // base: '/saturn-braids', // Github
-  base: '/', // Хостинг
+  base: '/saturn-braids', // Github
+  // base: '/', // Хостинг
   server: {
     open: true,
   },

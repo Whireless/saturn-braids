@@ -45,7 +45,7 @@
           </ul>
         </div>
       </article>
-      <go-braid></go-braid>
+      <!-- <go-braid></go-braid> -->
 		</div>
 	</section>
 </template>
@@ -77,7 +77,7 @@
 }
 
 .studio-info {
-  margin-top: 15px;
+  margin-top: 35px;
 
   &--favorite {
     margin-top: 25px;
@@ -88,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     width: 688px;
-    margin: 30px auto 0 auto;
+    margin: 50px auto 0 auto;
 
     &--favorite {
       margin-top: 40px;
@@ -98,6 +98,7 @@
 
   @media (min-width: $desktop) {
     width: 1160px;
+    margin: 70px auto 0 auto;
 
     &--favorite {
       margin-top: 55px;
@@ -106,7 +107,7 @@
 
   @media (min-width: $laptop) {
     width: 1620px;
-    margin-top: 50px;
+    margin-top: 90px;
 
     &--favorite {
       margin-top: 90px;
