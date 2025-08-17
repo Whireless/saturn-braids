@@ -2,43 +2,58 @@
   import { useGlobalStore } from '../store';
   import { storeToRefs } from 'pinia';
 
+  import { animate, onScroll, utils } from 'animejs';
+
   export default {
     setup() {
-      const { menuStatus, } = storeToRefs(useGlobalStore());
-      const { mobileMenu, navList, contactList } = useGlobalStore();
+      const { menuStatus, resizeHeader, } = storeToRefs(useGlobalStore());
+      const { scrollPage, mobileMenu, navList, contactList } = useGlobalStore();
       return {
         menuStatus,
+        scrollPage,
+        resizeHeader,
         mobileMenu,
         navList,
         contactList,
       }
     },
+    mounted() {
+      this.scrollPage();
+
+      // Анимация появления навигации
+
+      animate('.main-nav', {
+        y: ['-200%', 0],
+        opacity: [0, 1],
+        delay: 2000,
+      });
+    }
   }
 </script>
 
 <template>
   <header class="main-header">
-    <nav class="main-nav">
+    <nav :class="['main-nav', {'main-nav--scroll': resizeHeader}]">
       <ul :class="['main-nav__list', 'main-nav__list--nav', {'main-nav__list--open' : menuStatus}]">
         <li class="main-nav__item main-nav__item--nav"
             v-for="li in navList"
             :key="li">
-            <router-link :to="li.href" 
-                         @click="mobileMenu(true, li.page)"
-                         active-class="main-nav__link--nav--active"
-                         class="main-nav__link main-nav__link--nav">
-                         {{ li.text }}
-            </router-link>
+            <a :href="li.href" 
+               @click="mobileMenu(true, li.page)"
+               active-class="main-nav__link--nav--active"
+               class="main-nav__link main-nav__link--nav">
+               {{ li.text }}
+            </a>
         </li>
       </ul>
-      <router-link to="/home"
-                   @click="mobileMenu(true)"
-                   class="main-nav__logo"
-                   aria-label="Наш шикарный логотип">
-                    <svg class="main-nav__logo-icon" width="100%" height="100%">
-                      <use href="#logo"></use>
-                    </svg>
-      </router-link>
+      <a href="#intro"
+         @click="mobileMenu(true)"
+         class="main-nav__logo"
+         aria-label="Наш шикарный логотип">
+          <svg class="main-nav__logo-icon" width="100%" height="100%">
+            <use href="#logo"></use>
+          </svg>
+      </a>
       <ul class="main-nav__list main-nav__list--contact">
         <li class="main-nav__item main-nav__item--contact"
             v-for="li in contactList"
@@ -75,15 +90,55 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
+    transition: 0.4s;
+
+    &--scroll {
+      padding: 10px 40px;
+
+      .main-nav__logo {
+        width: 105px;
+        height: 45px;
+      }
+
+      .main-nav__link {
+        &--contact {
+          padding: 4px 12px;
+        }
+      }
+    }
   }
 
   @media (min-width: $desktop) {
     margin: 0 auto;
     padding: 20px 60px;
+
+    &--scroll {
+      padding: 10px 60px;
+
+      .main-nav__logo {
+        width: 140px;
+        height: 50px;
+      }
+
+      .main-nav__link {
+        &--contact {
+          padding: 5px 15px;
+        }
+      }
+    }
   }
 
   @media (min-width: $laptop) {
-    padding: 35px 150px;
+    padding: 30px 120px;
+
+    &--scroll {
+      padding: 20px 120px;
+
+      .main-nav__logo {
+        width: 170px;
+        height: 70px;
+      }
+    }
   }
 }
 
@@ -110,7 +165,7 @@
     @media (min-width: $tablet) {
       position: static;
       flex-direction: row;
-      column-gap: 30px;
+      column-gap: 25px;
       height: min-content;
       padding: 0;
       transform: translateX(0);
@@ -195,63 +250,18 @@
     align-items: center;
     height: 60px;
 
-    &--active {
-      color: $lightBlack;
-      background-color: $whitesmoke;
-    }
-
     @media (min-width: $tablet) {
       font-size: 18px;
       line-height: 21px;
       position: relative;
       height: auto;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
 
       &:hover {
         color: $whitesmoke;
         background-color: transparent;
-  
-        &::before {
-          content: "";
-          position: absolute;
-          top: -5px;
-          background-color: $whitesmoke;
-          width: 100%;
-          height: 1px;
-        }
-  
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          background-color: $whitesmoke;
-          width: 100%;
-          height: 1px;
-        }
-      }
-
-      &--active {
-        color: $whitesmoke;
-        background-color: transparent;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: -5px;
-          background-color: $whitesmoke;
-          width: 100%;
-          height: 1px;
-        }
-  
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          background-color: $whitesmoke;
-          width: 100%;
-          height: 1px;
-        }
+        border-bottom: 1px solid $whitesmoke;
       }
     }
 
@@ -270,10 +280,12 @@
     padding: 3px 8px;
     color: $lightBlack;
     background-color: $whitesmoke;
-    border-radius: 30px;
+    border-radius: 7px;
+    border: 1px solid $whitesmoke;
 
     &:hover {
-      opacity: 0.5;
+      color: $whitesmoke;
+      background-color: $lightBlack;
     }
 
     @media (min-width: $tablet) {

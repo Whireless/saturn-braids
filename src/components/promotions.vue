@@ -27,32 +27,6 @@
 </template>
 
 <style lang="scss">
-.promotions__title {
-  font-family: $decorTitle;
-  font-size: 37px;
-  line-height: 40px;
-  letter-spacing: 1px;
-  text-align: center;
-  width: max-content;
-  margin: 0 auto;
-  border-radius: 20px;
-
-  @media (min-width: $tablet) {
-    font-size: 45px;
-    line-height: 48px;
-  }
-
-  @media (min-width: $desktop) {
-    font-size: 55px;
-    line-height: 60px;
-  }
-
-  @media (min-width: $laptop) {
-    font-size: 65px;
-    line-height: 70px;
-  }
-}
-
 .promotions__list {
   display: flex;
   flex-direction: column;

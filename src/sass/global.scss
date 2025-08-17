@@ -15,7 +15,7 @@ body {
   font-family: 'Sofia Sans', 'Arial', sans-serif;
   font-size: 15px;
   line-height: 20px;
-  min-width: 360px;
+  min-width: 375px;
 
   @media (min-width: $tablet) {
     font-size: 18px;
@@ -23,13 +23,59 @@ body {
   }
 
   @media (min-width: $desktop) {
-    font-size: 21px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 25px;
   }
 
   @media (min-width: $laptop) {
     font-size: 30px;
     line-height: 35px;
+  }
+}
+
+h2 {
+  font-family: $decorTitle;
+  font-size: 38px;
+  line-height: 41px;
+  letter-spacing: 1px;
+  text-align: center;
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 20px;
+
+  @media (min-width: $tablet) {
+    font-size: 46px;
+    line-height: 49px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 56px;
+    line-height: 60px;
+  }
+
+  @media (min-width: $laptop) {
+    font-size: 65px;
+    line-height: 70px;
+  }
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 28px;
+
+  @media (min-width: $tablet) {
+    font-size: 30px;
+    line-height: 33px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 32px;
+    line-height: 35px;
+  }
+
+  @media (min-width: $laptop) {
+    font-size: 39px;
+    line-height: 42px;
   }
 }
 

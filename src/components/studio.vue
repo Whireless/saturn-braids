@@ -1,6 +1,8 @@
 <script>
   import { useGlobalStore } from '/src/store';
-  import goBraid from '../buttons/goBraid.vue';
+  import goBraid from './buttons/goBraid.vue';
+
+  import { animate, onScroll, utils } from 'animejs';
 
   export default {
     setup() {
@@ -13,10 +15,62 @@
     components: {
       goBraid,
     },
+    mounted() {
+
+      // Анимация заголовка
+
+      animate('.studio__title', {
+        opacity: [0, 1],
+        scale: [0, 1.2, 1],
+        autoplay: onScroll({
+          enter: 'center -200px',
+          leave: 'center center',
+          alternate: true,
+          sync: true,
+          // debug: true,
+        }),
+      });
+
+      // Анимация блоков преимуществ
+
+      const blocks = utils.$('.studio__block');
+
+      blocks.forEach(block => {
+        animate(block, {
+          opacity: [0, 1],
+          y: [70, 0],
+          autoplay: onScroll({
+            enter: 'center -150px',
+            leave: 'center center',
+            alternate: true,
+            sync: true,
+            // debug: true,
+          }),
+        });
+      });
+
+      if (window.matchMedia('(min-width: 767px)').matches) {
+        const icons = utils.$('.studio__icon');
+
+        icons.forEach((icon) => {
+          animate(icon, {
+            opacity: [0, 1],
+            // y: [-50, 0],
+            autoplay: onScroll({
+              enter: 'center -150px',
+              leave: 'center center',
+              alternate: true,
+              sync: true,
+              // debug: true,
+            }),
+          });
+        });
+      }
+    },
   }
 </script>
 <template>
-	<section class="studio">
+	<section class="studio" id="studio">
 		<div class="container">
 			<h2 class="studio__title">О студии</h2>
       <article class="studio-info studio-info--advantages">
@@ -50,31 +104,9 @@
 	</section>
 </template>
 <style lang="scss">
-.studio__title {
-	font-family: $decorTitle;
-  font-size: 37px;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-align: center;
-  width: max-content;
-  margin: 0 auto;
-  border-radius: 20px;
-
-  @media (min-width: $tablet) {
-  	font-size: 45px;
-    line-height: 48px;
+  .studio {
+    scroll-margin-top: 3em;
   }
-
-  @media (min-width: $desktop) {
-  	font-size: 55px;
-    line-height: 60px;
-  }
-
-  @media (min-width: $laptop) {
-    font-size: 65px;
-    line-height: 70px;
-  }
-}
 
 .studio-info {
   margin-top: 35px;
@@ -88,7 +120,7 @@
     display: flex;
     justify-content: space-between;
     width: 688px;
-    margin: 50px auto 0 auto;
+    margin: 45px auto 0 auto;
 
     &--favorite {
       margin-top: 40px;
@@ -98,7 +130,7 @@
 
   @media (min-width: $desktop) {
     width: 1160px;
-    margin: 70px auto 0 auto;
+    margin: 65px auto 0 auto;
 
     &--favorite {
       margin-top: 55px;
@@ -107,7 +139,7 @@
 
   @media (min-width: $laptop) {
     width: 1620px;
-    margin-top: 90px;
+    margin-top: 85px;
 
     &--favorite {
       margin-top: 90px;
@@ -155,14 +187,9 @@
 }
 
 .studio__suptitle {
-  font-family: $decorTitle;
-  font-size: 30px;
-  line-height: 33px;
   text-align: center;
 
   @media (min-width: $tablet) {
-    font-size: 33px;
-    line-height: 36px;
     width: 390px;
 
     &--advantages {
@@ -175,14 +202,10 @@
   }
 
   @media (min-width: $desktop) {
-    font-size: 39px;
-    line-height: 42px;
     width: 600px;
   }
 
   @media (min-width: $laptop) {
-    font-size: 44px;
-    line-height: 47px;
     width: 900px;
   }
 }

@@ -40,13 +40,18 @@
   visibility: visible;
   background: $gradient1;
   background-size: 400%;
-  animation: gradient 3s infinite linear;
-  transition: opacity 1.2s, visibility 0s 0s;
+  // animation: gradient 3s infinite linear;
+  // transition: opacity 1.2s, visibility 0s 0s;
+
+  animation: gradient 1s infinite linear;
+  transition: opacity 1s, visibility 0s 0s;
 
   &--hidden {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 1.2s, visibility 0s 1.2s;
+    // transition: opacity 1.2s, visibility 0s 1.2s;
+
+    transition: opacity 1s, visibility 0s 1s;
   }
 }
 

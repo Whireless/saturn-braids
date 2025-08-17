@@ -1,9 +1,8 @@
 <script>
-  import goBraid from './buttons/goBraid.vue';
+  // import goBraid from './buttons/goBraid.vue';
   import { useGlobalStore } from '../store';
 
-  import { gsap, ScrollTrigger } from 'gsap/all';
-  gsap.registerPlugin(ScrollTrigger);
+  import { animate, onScroll, utils } from 'animejs';
 
   export default {
     setup() {
@@ -13,28 +12,50 @@
       }
     },
     mounted() {
-      const afterLoad = gsap.timeline({delay: 0.3});
 
-      const answers = gsap.utils.toArray('.faq__details');
+      // Анимация заголовка
 
-      afterLoad
-      .from(answers, {
-        y: '-30%',
-        opacity: 0,
-        stagger: 0.3,
-      })
+      animate('.faq__title', {
+        opacity: [0, 1],
+        scale: [0, 1.2, 1],
+        autoplay: onScroll({
+          enter: 'center -200px',
+          leave: 'center center',
+          alternate: true,
+          sync: true,
+          // debug: true,
+        }),
+      });
+
+      // Анимация появления вопросов
+
+      const questions = utils.$('.faq__details');
+
+      questions.forEach(question => {
+        animate(question, {
+          opacity: [0, 1],
+          x: [-50, 0],
+          autoplay: onScroll({
+            enter: 'center -100px',
+            leave: 'center center',
+            alternate: true,
+            sync: true,
+            // debug: true,
+          }),
+        });
+      });
     },
     components: {
-      goBraid,
+      // goBraid,
     },
   }
 </script>
 
 <template>
-  <section class="faq">
+  <section class="faq" id="faq">
     <div class="container">
       <h2 class="faq__title">F . A . Q</h2>
-      <article class="faq__faq-block">
+      <article class="faq__block">
         <details class="faq__details"
             v-for="li in faqList"
             :key="li">
@@ -47,72 +68,36 @@
           <p class="faq__answer">{{ li.answer }}</p>
         </details>
       </article>
-      <p class="faq__go-braid">Развеял(а) свои сомнения и решился(ась)?</p>
-      <go-braid></go-braid>
+      <!-- <p class="faq__go-braid">Развеял(а) свои сомнения и решился(ась)?</p>
+      <go-braid></go-braid> -->
     </div>
   </section>
 </template>
 
 .<style lang="scss">
 .faq {
-  margin: 70px auto 0 auto;
-
-  @media (min-width: $tablet) {
-    margin: 80px auto 0 auto;
-  }
-
-  @media (min-width: $desktop) {
-    margin: 95px auto 0 auto;
-  }
-
-  @media (min-width: $laptop) {
-    margin: 150px auto 0 auto;
-  }
-}
-
-.faq__title {
-  font-family: $decorTitle;
-  font-size: 37px;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-align: center;
-  width: max-content;
   margin: 0 auto;
-  border-radius: 20px;
-
-  @media (min-width: $tablet) {
-    font-size: 45px;
-    line-height: 48px;
-  }
-
-  @media (min-width: $desktop) {
-    font-size: 55px;
-    line-height: 60px;
-  }
-
-  @media (min-width: $laptop) {
-    font-size: 65px;
-    line-height: 70px;
-  }
+  scroll-margin-top: 3em;
 }
 
-.faq__faq-block {
+.faq__block {
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 20px;
   margin-top: 35px;
 
   @media (min-width: $tablet) {
-    margin-top: 50px;
+    row-gap: 25px;
+    margin-top: 45px;
   }
 
   @media (min-width: $desktop) {
-    row-gap: 40px;
-    margin-top: 70px;
+    row-gap: 30px;
+    margin-top: 65px;
   }
 
   @media (min-width: $laptop) {
-    margin-top: 90px;
+    margin-top: 85px;
   }
 }
 
@@ -121,9 +106,8 @@
   flex-direction: column;
   align-items: center;
   width: 323px;
-  padding: 10px;
   border: 1px solid $lightBlack;
-  border-radius: 20px;
+  border-radius: 7px;
   list-style: none;
 
   &[open] {
@@ -135,25 +119,22 @@
   }
 
   @media (min-width: $tablet) {
-    width: 580px;
+    width: 620px;
   }
 
   @media (min-width: $desktop) {
-    width: 800px;
+    width: 950px;
     margin: 0 auto;
   }
 
   @media (min-width: $laptop) {
-    width: 1100px;
-    padding: 20px;
+    width: 1400px;
   }
 }
 
 .faq__question {
-  font-family: $decorTitle;
-  font-size: 22px;
-  line-height: 25px;
-  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 23px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -161,31 +142,35 @@
   column-gap: 15px;
   cursor: pointer;
   list-style: none;
+  padding: 12px;
 
-  // Скрытие стрелочек для IOS
+  ///////// Скрытие стрелочек для IOS
 
   &::-webkit-details-marker {
     display: none;
   }
 
-  ////
+  /////////
 
   @media (min-width: $tablet) {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 25px;
+    line-height: 28px;
     column-gap: 20px;
+    padding: 15px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 35px;
-    line-height: 38px;
+    font-size: 30px;
+    line-height: 33px;
     column-gap: 25px;
+    padding: 20px 25px;
   }
 
   @media (min-width: $laptop) {
-    font-size: 40px;
-    line-height: 45px;
+    font-size: 35px;
+    line-height: 38px;
     column-gap: 35px;
+    padding: 30px;
   }
 }
 
@@ -208,33 +193,38 @@
   font-weight: 300;
   text-align: justify;
   padding: 15px;
+  border-top: 1px solid $lightBlack;
 
   @media (min-width: $tablet) {
-    padding: 20px 15px;
+    padding: 20px;
   }
 
   @media (min-width: $desktop) {
-    padding: 25px 15px;
+    padding: 25px;
+  }
+
+  @media (min-width: $laptop) {
+    padding: 30px;
   }
 }
 
-.faq__go-braid {
-  font-size: 18px;
-  line-height: 21px;
-  font-weight: 300;
-  width: max-content;
-  margin: 30px auto 20px auto;
+// .faq__go-braid {
+//   font-size: 18px;
+//   line-height: 21px;
+//   font-weight: 300;
+//   width: max-content;
+//   margin: 30px auto 20px auto;
 
-  @media (min-width: $tablet) {
-    font-size: 21px;
-    line-height: 24px;
-    margin: 40px auto 30px auto;
-  }
+//   @media (min-width: $tablet) {
+//     font-size: 21px;
+//     line-height: 24px;
+//     margin: 40px auto 30px auto;
+//   }
 
-  @media (min-width: $desktop) {
-    font-size: 25px;
-    line-height: 28px;
-    margin: 50px auto 40px auto;
-  }
-}
+//   @media (min-width: $desktop) {
+//     font-size: 25px;
+//     line-height: 28px;
+//     margin: 50px auto 40px auto;
+//   }
+// }
 </style>

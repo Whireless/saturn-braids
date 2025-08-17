@@ -19,11 +19,13 @@
   background-size: 400%;
   margin: 0 auto;
   padding: 15px 30px;
-  border-radius: 40px;
-  transition: 0.5s;
+  // border-radius: 40px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  transition: 0.4s;
 
   &:hover {
-    opacity: 0.7;
+    border: 1px solid $whitesmoke;
   }
 
   @media (min-width: $tablet) {
@@ -31,7 +33,7 @@
   }
 
   @media (min-width: $laptop) {
-    padding: 20px 40px;
+    padding: 25px 45px;
   }
 }
 </style>

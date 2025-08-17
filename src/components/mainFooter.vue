@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <footer class="main-footer">
+  <footer class="main-footer" id="contacts">
     <div class="container">
       <article class="main-footer__interaction">
         <ul class="main-footer__social-list">

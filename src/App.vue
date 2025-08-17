@@ -1,12 +1,15 @@
 <script>
   import preloader from './components/preloader.vue';
   import mainHeader from './components/mainHeader.vue';
+  import intro from './components/intro.vue';
+  import hairstyles from './components/hairstyles.vue';
+  import studio from './components/studio.vue';
+  import masters from './components/masters.vue';
+  import faq from './components/faq.vue';
+  import maps from './components/maps.vue';
   import mainFooter from './components/mainFooter.vue';
 
   import { useGlobalStore } from './store';
-
-  import { gsap, ScrollTrigger } from 'gsap/all';
-  gsap.registerPlugin(ScrollTrigger);
 
   export default {
     setup() {
@@ -19,27 +22,30 @@
       this.preloaderHidden();
 
       // Анимации
-
-      window.addEventListener('load', () => {
-        const afterLoad = gsap.timeline({delay: 0.3});
-        afterLoad.from('.main-nav', {y: '-100%', opacity: 0,})
-      });
     },
     components: {
       preloader,
       mainHeader,
       mainFooter,
+
+      intro,
+      hairstyles,
+      studio,
+      masters,
+      faq,
+      maps,
     },
   }
 </script>
 
 <template>
-  <preloader></preloader>
+  <!-- <preloader></preloader> -->
   <mainHeader></mainHeader>
-  <router-view v-slot="{ Component, route }">
-    <transition mode="out-in">
-      <component :is="Component" :key="route.path"/>
-    </transition>
-  </router-view>
+  <intro></intro>
+  <hairstyles></hairstyles>
+  <studio></studio>
+  <masters></masters>
+  <faq></faq>
+  <maps></maps>
   <mainFooter></mainFooter>
 </template>
