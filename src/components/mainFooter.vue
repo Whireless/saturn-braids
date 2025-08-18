@@ -45,7 +45,7 @@
       <span class="main-footer__dev">dev: <a href="https://github.com/Whireless" title="Разработчик">whireless</a></span>
     </div>
     <a :class="['main-footer__up', {'main-footer__up--visually' : arrowUp}]" href="#intro">
-      <svg class="main-footer__up-arrow" fill="whitesmoke" width="30" height="30">
+      <svg class="main-footer__up-arrow" fill="whitesmoke" width="35" height="35">
         <use href="#arrow"></use>
       </svg>
     </a>
@@ -161,8 +161,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   background-color: $lightBlack;
   border: 1px solid $whitesmoke;
   border-radius: 50%;
@@ -198,8 +198,8 @@
 
   @media (min-width: $laptop) {
     right: 120px;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -207,6 +207,11 @@
   @media (min-width: $tablet) {
     width: 40px;
     height: 40px;
+  }
+
+  @media (min-width: $laptop) {
+    width: 50px;
+    height: 50px;
   }
 }
 </style>

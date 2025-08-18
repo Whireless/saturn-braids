@@ -53,9 +53,11 @@
         <h1 class="intro__title">Saturn Braids</h1>
         <p class="intro__description">Пожалуй, лучшая студия афропричёсок в Питере!*</p>
         <go-braid></go-braid>
-        <svg class="intro__arrow" fill="whitesmoke" width="50" height="60">
-          <use href="#arrow"></use>
-        </svg>
+        <a href="#hairstyles">
+          <svg class="intro__arrow" fill="whitesmoke" width="50" height="60">
+            <use href="#arrow"></use>
+          </svg>
+        </a>
       </section>
     </div>
   </article>
