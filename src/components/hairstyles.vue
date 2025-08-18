@@ -34,10 +34,10 @@
         items.forEach((item, i) => {
           if (i % 2 == 0) {
             animate(item, {
-              x: [-50, 0],
+              x: [-70, 0],
               opacity: [0, 1],
               autoplay: onScroll({
-                enter: 'center top',
+                enter: 'center -80px',
                 leave: 'center center',
                 alternate: true,
                 sync: true,
@@ -46,10 +46,10 @@
             });
           } else {
             animate(item, {
-              x: [50, 0],
+              x: [70, 0],
               opacity: [0, 1],
               autoplay: onScroll({
-                enter: 'center top',
+                enter: 'center -80px',
                 leave: 'center center',
                 alternate: true,
                 sync: true,

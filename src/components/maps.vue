@@ -22,8 +22,8 @@
       	opacity: [0, 1],
       	y: [100, 0],
       	autoplay: onScroll({
-      		enter: 'center -200px',
-          leave: 'center center',
+      		enter: 'center -210px',
+          leave: 'center -10px',
           alternate: true,
           sync: true,
           // debug: true,

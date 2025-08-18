@@ -14,6 +14,10 @@ export const useGlobalStore = defineStore('globalStore', {
     
     resizeHeader: false,
 
+    // Стрелочка "Вверх"
+
+    arrowUp: false,
+
     // menu: {
     //   open: false,
     //   navClass: 'main-nav__list--open',
@@ -264,7 +268,7 @@ export const useGlobalStore = defineStore('globalStore', {
     
     // Скрытие прелоадера
 
-    preloaderHidden() { window.onload = () => this.preloader = true },
+    // preloaderHidden() { window.onload = () => this.preloader = true },
 
     // Открытие/закрытие моб. меню
 
@@ -297,7 +301,9 @@ export const useGlobalStore = defineStore('globalStore', {
 
     scrollPage() {
       window.addEventListener('scroll', () => {
-        window.scrollY >= 400 ? this.resizeHeader = true : this.resizeHeader = false;
+        window.scrollY >= 500 ? this.resizeHeader = true : this.resizeHeader = false;
+
+        window.scrollY >= 1500 ? this.arrowUp = true : this.arrowUp = false;
       });
     },
   },

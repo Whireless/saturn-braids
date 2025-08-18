@@ -9,10 +9,26 @@
     },
     mounted() {
 
+      // setTimeout(() => {
+      //   animate('.intro__info', {
+      //     scale: [0.4, 1],
+      //     opacity: [0, 1],
+      //     delay: 500,
+      //   });
+
+      //   animate('.intro__best', {
+      //     opacity: [0, 1],
+      //     y: [-70, 0],
+      //     delay: 1500,
+      //   });
+      // }, 2000);
+
+      //////////////////////////////////////
+
       animate('.intro__info', {
         scale: [0.4, 1],
         opacity: [0, 1],
-        delay: 500,
+        delay: 600,
       });
 
       animate('.intro__best', {
@@ -27,7 +43,7 @@
 <template>
   <article class="intro" id="intro">
     <div class="container">
-      <span class="intro__best">*по мнению наших клиентов :)</span>
+      <span class="intro__best">*по мнению наших клиентов 😌</span>
       <section class="intro__info">
         <!-- <h1 class="intro__title"><span class="intro__title-decor">Saturn Braids</span> <br> Студия афропричёсок</h1> -->
 
@@ -37,7 +53,7 @@
         <h1 class="intro__title">Saturn Braids</h1>
         <p class="intro__description">Пожалуй, лучшая студия афропричёсок в Питере!*</p>
         <go-braid></go-braid>
-        <svg class="intro__arrow" width="50" height="60">
+        <svg class="intro__arrow" fill="whitesmoke" width="50" height="60">
           <use href="#arrow"></use>
         </svg>
       </section>
@@ -50,7 +66,7 @@
   position: relative;
   color: $whitesmoke;
   text-align: center;
-  background-image: url("../img/intro-bg.jpg");
+  background-image: url("../img/intro-bg-min.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 260px 0 220px 0;
@@ -74,24 +90,24 @@
   position: absolute;
   top: 75px;
   right: 15px;
-  width: 200px;
+  width: 220px;
 
   @media (min-width: $tablet) {
     top: 85px;
     right: 40px;
-    width: 250px;
+    width: 260px;
   }
 
   @media (min-width: $desktop) {
     top: 100px;
     right: 60px;
-    width: 280px;
+    width: 285px;
   }
 
   @media (min-width: $laptop) {
     top: 145px;
     right: 120px;
-    width: 410px;
+    width: 425px;
   }
 }
 
@@ -117,8 +133,8 @@
 
 .intro__title {
   font-family: $decorTitle;
-  font-size: 40px;
-  line-height: 43px;
+  font-size: 42px;
+  line-height: 45px;
 
   @media (min-width: $tablet) {
     font-size: 50px;
@@ -150,7 +166,7 @@
 
 .intro__description {
   // font-weight: 300;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 50px;
 
   @media (min-width: $tablet) {
@@ -174,15 +190,15 @@
 }
 
 .intro__arrow {
-  margin-top: 35px;
+  margin-top: 40px;
   animation: arrow 2s infinite linear;
 
   @media (min-width: $tablet) {
-    margin-top: 40px;
+    margin-top: 45px;
   }
 
   @media (min-width: $desktop) {
-    margin-top: 45px;
+    margin-top: 50px;
   }
 
   @media (min-width: $laptop) {

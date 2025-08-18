@@ -35,8 +35,8 @@ body {
 
 h2 {
   font-family: $decorTitle;
-  font-size: 38px;
-  line-height: 41px;
+  font-size: 40px;
+  line-height: 43px;
   letter-spacing: 1px;
   text-align: center;
   width: max-content;
@@ -44,17 +44,17 @@ h2 {
   border-radius: 20px;
 
   @media (min-width: $tablet) {
-    font-size: 46px;
-    line-height: 49px;
+    font-size: 48px;
+    line-height: 51px;
   }
 
   @media (min-width: $desktop) {
-    font-size: 56px;
-    line-height: 60px;
+    font-size: 58px;
+    line-height: 61px;
   }
 
   @media (min-width: $laptop) {
-    font-size: 65px;
+    font-size: 67px;
     line-height: 70px;
   }
 }

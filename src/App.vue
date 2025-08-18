@@ -1,5 +1,5 @@
 <script>
-  import preloader from './components/preloader.vue';
+  // import preloader from './components/preloader.vue';
   import mainHeader from './components/mainHeader.vue';
   import intro from './components/intro.vue';
   import hairstyles from './components/hairstyles.vue';
@@ -11,6 +11,8 @@
 
   import { useGlobalStore } from './store';
 
+  import { animate } from 'animejs';
+
   export default {
     setup() {
       const { preloaderHidden } = useGlobalStore();
@@ -19,12 +21,10 @@
       }
     },
     mounted() {
-      this.preloaderHidden();
-
-      // Анимации
+      // this.preloaderHidden();
     },
     components: {
-      preloader,
+      // preloader,
       mainHeader,
       mainFooter,
 

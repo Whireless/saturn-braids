@@ -1,13 +1,20 @@
 <script>
   import { useGlobalStore } from '../store';
+  import { storeToRefs } from 'pinia';
 
   export default {
     setup() {
-      const { socials } = useGlobalStore();
+      const { arrowUp } = storeToRefs(useGlobalStore());
+      const { scrollPage, socials } = useGlobalStore();
       return {
+        scrollPage,
+        arrowUp,
         socials,
       }
-    }
+    },
+    mounted() {
+      this.scrollPage();
+    },
   }
 </script>
 
@@ -37,6 +44,11 @@
       </article>
       <span class="main-footer__dev">dev: <a href="https://github.com/Whireless" title="Разработчик">whireless</a></span>
     </div>
+    <a :class="['main-footer__up', {'main-footer__up--visually' : arrowUp}]" href="#intro">
+      <svg class="main-footer__up-arrow" fill="whitesmoke" width="30" height="30">
+        <use href="#arrow"></use>
+      </svg>
+    </a>
   </footer>
 </template>
 
@@ -139,6 +151,62 @@
 
   @media (min-width: $desktop) {
     margin: 0 0 0 auto;
+  }
+}
+
+.main-footer__up {
+  position: fixed;
+  bottom: 40px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $lightBlack;
+  border: 1px solid $whitesmoke;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.4s;
+
+  &--visually {
+    opacity: 1;
+    z-index: 9;
+  }
+
+  &:hover {
+    background-color: $whitesmoke;
+    border: 1px solid $lightBlack;
+
+    .main-footer__up-arrow {
+      fill: $lightBlack;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    right: 40px;
+    width: 50px;
+    height: 50px;
+  }
+
+  @media (min-width: $desktop) {
+    right: 60px;
+    width: 55px;
+    height: 55px;
+  }
+
+  @media (min-width: $laptop) {
+    right: 120px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.main-footer__up-arrow {
+  @media (min-width: $tablet) {
+    width: 40px;
+    height: 40px;
   }
 }
 </style>

@@ -25,7 +25,7 @@
       animate('.main-nav', {
         y: ['-200%', 0],
         opacity: [0, 1],
-        delay: 2000,
+        delay: 2500,
       });
     }
   }
