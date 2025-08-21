@@ -22,17 +22,17 @@
 
       // Анимация появления навигации
 
-      animate('.main-nav', {
-        y: ['-200%', 0],
-        opacity: [0, 1],
-        delay: 2500,
-      });
+      // animate('.main-nav', {
+      //   y: ['-200%', 0],
+      //   opacity: [0, 1],
+      //   delay: 2300,
+      // });
     }
   }
 </script>
 
 <template>
-  <header class="main-header">
+  <header class="main-header" id="intro">
     <nav :class="['main-nav', {'main-nav--scroll': resizeHeader}]">
       <ul :class="['main-nav__list', 'main-nav__list--nav', {'main-nav__list--open' : menuStatus}]">
         <li class="main-nav__item main-nav__item--nav"

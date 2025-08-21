@@ -34,16 +34,16 @@
       animate('.intro__best', {
         opacity: [0, 1],
         y: [-70, 0],
-        delay: 1500,
+        delay: 1400,
       });
     },
   }
 </script>
 
 <template>
-  <article class="intro" id="intro">
+  <article class="intro">
     <div class="container">
-      <span class="intro__best">*по мнению наших клиентов 😌</span>
+      <span class="intro__best">*по мнению наших клиентов ✨</span>
       <section class="intro__info">
         <!-- <h1 class="intro__title"><span class="intro__title-decor">Saturn Braids</span> <br> Студия афропричёсок</h1> -->
 
@@ -68,48 +68,47 @@
   position: relative;
   color: $whitesmoke;
   text-align: center;
-  background-image: url("../img/intro-bg-min.jpg");
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/intro-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 260px 0 220px 0;
+  margin-top: 70px;
   scroll-margin-top: 3em;
 
   @media (min-width: $tablet) {
-    padding: 220px 0 230px 0;
+    margin-top: 80px;
   }
 
   @media (min-width: $desktop) {
     background-position: center;
+    margin-top: 95px;
   }
 
   @media (min-width: $laptop) {
-    padding: 320px 0 320px 0;
+    margin-top: 140px;
   }
 }
 
 .intro__best {
   font-weight: 100;
   position: absolute;
-  top: 75px;
+  top: 10px;
   right: 15px;
-  width: 220px;
+  width: max-content;
 
   @media (min-width: $tablet) {
-    top: 85px;
     right: 40px;
-    width: 260px;
   }
 
   @media (min-width: $desktop) {
-    top: 100px;
     right: 60px;
-    width: 285px;
   }
 
   @media (min-width: $laptop) {
-    top: 145px;
     right: 120px;
-    width: 425px;
   }
 }
 
